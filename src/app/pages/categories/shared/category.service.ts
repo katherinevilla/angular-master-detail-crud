@@ -20,7 +20,7 @@ private apiPath: string = "api/categories";
     )
   }
 getById(id: number): Observable<Category>{
-  const url = `${this.apiPath} / ${id}`;
+  const url = `${this.apiPath}/${id}`;
   return this.http.get(url).pipe(
     catchError(this.handleError),
     map(this.jsonDataToCategory)
@@ -43,10 +43,10 @@ update(category: Category):Observable<Category>{
 }
 
 delete(id:number): Observable<any>{
-  const url = `${this.apiPath} / ${id}`;
+  const url = `${this.apiPath}/${id}`;
   return this.http.delete(url).pipe(catchError(this.handleError),
   map(()=> null))
-  
+
 }
 
   private jsonDataToCategories(jsonData: any[]):Category[]{
